@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>Demo</title>
+
+    <style>
+        @font-face {
+            font-family: "TTNormsPro-Regular";
+            src: url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.eot");
+            src: url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.eot?#iefix")
+            format("embedded-opentype"), url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.woff2")
+            format("woff2"), url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.woff")
+            format("woff"), url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.ttf")
+            format("truetype"), url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.svg#TTNormsPro-Regular")
+            format("svg");
+        }
+
+        * {
+            padding: 0; margin: 0;
+            font-family: TTNormsPro-Regular, sans-serif;
+        }
+        header { padding: 20px; background: #202020; box-sizing: border-box; font-size: 20px; color: #B1A378}
+        header * { vertical-align: middle; }
+        .logo {margin-right: 1rem}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div>
+            <span class="logo"><img src="/dist/logo.jpeg" alt="" height="40"></span>
+            <span>Gaming1 - Microfrontend Demo - Host environment</span>
+        </div>
+        <div id="loadingIndicator"></div>
+    </header>
+    <main>
+        <mfe-demo game="Texas Hold'em"></mfe-demo>
+        <script src="/dist/main.js" async></script>
+        <script>
+            document.addEventListener("MFE-game-loaded", ev => {
+                console.log("Event noticed from MFE: 'MFE-game-loaded'");
+                document.getElementById("loadingIndicator").innerHTML = ev.detail;
+            })
+
+            document.addEventListener("MFE-loading-game", ev => {
+                console.log("Event noticed from MFE: 'MFE-loading-game'");
+                document.getElementById("loadingIndicator").innerHTML = "<span>... loading</span>";
+            })
+        </script>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "TTNormsPro-Regular";
+    src: url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.eot");
+    src: url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.eot?#iefix")
+        format("embedded-opentype"), url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.woff2")
+        format("woff2"), url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.woff")
+        format("woff"), url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.ttf")
+        format("truetype"), url("//db.onlinewebfonts.com/t/49bf5d043a27b890a040cf393277e2b2.svg#TTNormsPro-Regular")
+        format("svg");
+}
+
+* {
+    font-family: TTNormsPro-Regular, sans-serif;
+}
+
+.content {
+    padding: 3rem;
+}

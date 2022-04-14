@@ -1,0 +1,25 @@
+{
+    "name": "gaming1-mfe-bff",
+    "private": true,
+    "version": "0.0.1",
+    "description": "(Very) basic MFE BFF, accompanying the MFE",
+    "main": "dev.js",
+    "scripts": {
+        "dev": "PORT=${PORT:-8080} npx nodemon dev.js"
+    },
+    "author": "Gaming1 development",
+    "contributors": [
+        {
+            "name": "Dzengiz Tafa",
+            "email": "dzengiz.tafa@gaming1.com"
+        }
+    ],
+    "dependencies": {
+        "node-fetch": "^2.6.1"
+    },
+    "devDependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "nodemon": "^2.0.6"
+    }
+}

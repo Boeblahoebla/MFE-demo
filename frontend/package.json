@@ -1,0 +1,51 @@
+{
+    "name": "gaming1-mfe-demo",
+    "private": true,
+    "version": "0.0.1",
+    "description": "(Very) basic MFE demo showing bi-directional interaction between its Host environment",
+    "author": "Gaming1 development",
+    "contributors": [
+        {
+            "name": "Dzengiz Tafa",
+            "email": "dzengiz.tafa@gaming1.com"
+        }
+    ],
+    "scripts": {
+        "init": "test -d dist && rm -r dist; mkdir dist && cp src/logo.jpeg dist/",
+        "dev": "npm run init && npm-run-all --parallel dev:*",
+        "dev:js": "npx rollup -c -w",
+        "dev:html": "npx browser-sync start --watch --server --port 8081 --files 'dist/*' --index src/index.html",
+        "build": "npm run init && npx rollup -c --environment BUILD:production && npx terser --compress -m --mangle-props regex=/^_/ -o dist/main.js -- dist/main.js && cp src/index.html dist/"
+    },
+    "dependencies": {
+        "@lxg/l10n": "^1.2.1",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@rollup/plugin-replace": "^2.3.4",
+        "construct-style-sheets-polyfill": "^2.4.16",
+        "npm-run-all": "^4.1.5",
+        "rollup": "^2.26.5",
+        "rollup-plugin-string": "^3.0.0",
+        "rollup-plugin-terser": "^7.0.0"
+    },
+    "devDependencies": {
+        "@lxg/l10n-tools": "^1.2.1",
+        "browser-sync": "^2.26.13"
+    },
+    "l10n": {
+        "directory": "l10n",
+        "instance": "this._l10n",
+        "locales": [
+            "de-DE",
+            "nl-BE"
+        ],
+        "sources": [
+            "src/**/*.js"
+        ],
+        "targets": {
+            "src/translations.json": [
+                "src/**/*.js"
+            ]
+        }
+    }
+}
